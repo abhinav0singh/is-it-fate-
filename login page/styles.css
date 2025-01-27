@@ -1,0 +1,203 @@
+:root {
+    --color-primary:#b820a6;
+    --color-secondary:#4f36d8;
+    --color-accent:#d6b190;
+    --color-light:#6a0c15;
+    --color-bg:#070810 ;
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Animation */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--color-primary), var(--color-secondary), var(--color-light));
+    animation: flowerAnimation 10s infinite alternate;
+    transform: translate(-50%, -50%) rotate(45deg);
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+}
+
+@keyframes flowerAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotate(45deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(60deg) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(75deg) scale(1);
+    }
+}
+
+/* Centering the Container */
+.container {
+    background: var(--color-light);
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s ease-in-out;
+}
+
+/* Smooth Cylinder Rotation */
+#loginPage {
+    transform-origin: left;
+    backface-visibility: hidden;
+}
+
+#signupPage {
+    transform: rotateY(180deg);
+    transform-origin: left;
+    backface-visibility: hidden;
+}
+
+body.switch #loginPage {
+    transform: rotateY(-180deg);
+    transition: transform 1.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+body.switch #signupPage {
+    transform: rotateY(0deg);
+    transition: transform 1.2s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 120px;
+    height: 120px;
+    background: var(--color-secondary);
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(25px);
+    animation: float 8s infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 32px;
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Container */
+.form-container h2 {
+    font-size: 24px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    font-size: 16px;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+input, textarea {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    background-color: rgb(247, 241, 228);
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* Buttons */
+button {
+    width: 95%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.btn {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+button.btn.secondary {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.divider {
+    margin: 15px 0;
+    font-size: 14px;
+    color: var(--color-secondary);
+}
+
+input::placeholder {
+    color: var(--color-secondary);
+    font-size: 14px;
+}
+#loginPage {
+    transform: rotateY(0deg); /* Default position */
+}
+
+/* Signup Page (Back) */
+#signupPage {
+    transform: rotateY(180deg); /* Rotated position */
+}
+
+/* Rotations */
+body.switch .container-wrapper {
+    transform: rotateY(180deg); /* Smooth rotation to show signup */
+}

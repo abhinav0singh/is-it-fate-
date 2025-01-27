@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Room</title>
+  <link rel="stylesheet" href="chatStyles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Chat Room</h1>
+      <div class="toggle-mode">
+        <label class="switch">
+          <input type="checkbox" id="modeToggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </header>
+    
+    <!-- Chat Box -->
+    <div class="chat-box">
+      <div class="chat-header">
+        <button class="back-btn" onclick="redirectToDashboard()">&larr;</button>
+        <span id="activeUserName"></span>
+        <div id="timer" class="timer">1:00 remaining</div>
+      </div>
+
+      <!-- Overlay for User Info -->
+      <div class="user-info">
+        <p id="userGreeting"></p>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <!-- Messages will load dynamically -->
+      </div>
+      
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type a message">
+        <button class="send-btn" id="sendMessageBtn">&#10148;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Updated Flower Animation Placeholder -->
+  <div id="flowerAnimation" class="flower-animation hidden">
+    <img src="C:\Users\abhin\Programs\github\is-it-fate-\rose-animation.png" alt="Flower" id="flower">
+    <p>Chat has ended, redirecting...</p>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>

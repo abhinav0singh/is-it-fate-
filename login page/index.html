@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="loginPage">
+        <div class="logo">
+            <h1>Is It Fate ?</h1>
+        </div>
+        <div class="form-container">
+            <h2>Welcome</h2>
+            <p>Login to continue</p>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Your email here" required>
+                <input type="password" id="loginPassword" placeholder="Your password here" required>
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+            <div class="divider">or</div>
+            <button class="btn secondary" id="signupButton">Sign Up</button>
+        </div>
+    </div>
+
+    <div class="container rotate-container" id="signupPage" style="display: none;">
+        <div class="logo">
+            <h1>Is It Fate ?</h1>
+        </div>
+        <div class="form-container">
+            <h2>Create Account</h2>
+            <form id="signupForm">
+                <input type="email" id="signupEmail" placeholder="Your email here" required>
+                <input type="text" id="signupGender" placeholder="Your gender here" required>
+                <textarea id="signupInterest" placeholder="Your interests (max 280 characters)" maxlength="280" required></textarea>
+                <input type="password" id="signupPassword" placeholder="Create a password" required>
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <div class="divider">or</div>
+            <button class="btn secondary" id="backToLogin">Back to Login</button>
+        </div>
+    </div>
+
+    <!-- Popup for error messages -->
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <p id="popupMessage"></p>
+            <button class="btn" id="popupClose">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
